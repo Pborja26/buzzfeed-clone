@@ -1,0 +1,20 @@
+<div class="quizWrapper">
+    <div class="quizzLogoWrap">
+        <img src="assets/imgs/logo.png" alt="" srcset="">
+        <h3>{{ title }}</h3>
+    </div>
+    <div *ngIf="!finished" class="quizzQuestionWrap">
+        <h3>{{ questionSelected.question }}</h3>
+    </div>
+    <div *ngIf="!finished" class="quizzOptionsWrap">
+
+        <button *ngFor="let option of questionSelected.options"
+            (click)="buttonPress(option.alias)" class="btnOption">
+                {{ option.name }}
+        </button>
+    </div>
+    <div *ngIf="finished" class="quizzResultsWrap">
+        <h1>O seu resultado é</h1>
+        <p>{{ answerSelected }}</p>
+    </div>
+</div>
